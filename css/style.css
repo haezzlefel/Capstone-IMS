@@ -99,7 +99,10 @@
   left:70px;
 
 }
-
+#logoutbtn{
+  background-color: #087b81;
+  color: #f7f6f6;
+}
 .main-content{
   transition: margin-left 300ms;
   margin-left: 345px;
