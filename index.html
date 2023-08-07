@@ -8,108 +8,314 @@
     <script src="https://kit.fontawesome.com/c06e76d496.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>  
-    <link rel="stylesheet" href="style.css">
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/style.css"> 
+   <title>Document</title>
 </head>
 <body>
-    <div class="sidebar active">
-        <div class="logo_content">
-            <div class="logo">
-                <i class='bx bx-grid-alt' style="font-size: 30px;">   IMS</i>
-                <div class="logoname" style="margin-left: 5px;"></div>
-            </div>
-            <i class='bx bx-menu-alt-right' id="btn" style="font-size: 25px;"></i>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+          <h1> <span class="bx bx-grid-alt"> </span> <span>IMS</span>
+          </h1>
         </div>
-        <ul class="nav_list">
+        <div class="sidebar-menu" id="hov">
+          <ul>
             <li>
-                <i class='bx bx-search'></i>
-                <input type="text" placeholder="Search...">
-                <span class="tooltip">Search</span>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-gauge" ></i>
-                    <span class="link_names">Dashboard</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Total Products</a></li>
-                    <li><a class="dropdown-item" href="#">Low Stock Products</a></li>
-                    <li><a class="dropdown-item" href="#">Out Of Stocks</a></li>
-                  </ul>
-                <span class="tooltip">Dashboard</span>
+              <a href="#" class="active">
+                <span class="fas fa-tachometer-alt"></span>
+                <span>Dashboard</span>
+              </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fa-solid fa-cubes-stacked"></i>
-                    <span class="link_names">Stock Card</span>
-                </a>
-                <span class="tooltip">Stock Card</span>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-boxes-stacked"></i>
-                    <span class="link_names">Stock Management</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Delivery Receipt</a></li>
-                    <li><a class="dropdown-item" href="#">Stock Receipt</a></li>
-                  </ul>
-                <span class="tooltip">Stock Management</span>
+              <a href="#">
+                <span class="fas fa-boxes"></span>
+                <span>Inventory</span>
+              </a>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-chat' ></i>
-                    <span class="link_names">Messages</span>
-                </a>
-                <span class="tooltip">Messages</span>
+              <a href="#">
+                <span class="fas fa-users" ></span>
+                <span>Customers</span>
+              </a>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-folder' ></i>
-                    <span class="link_names">Reports</span>
-                </a>
-                <span class="tooltip">Reports</span>
+              <a href="#">
+                <span class='bx bx-folder'></span>
+              <span>Reports</span>
+              </a>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-cart-alt' ></i>
-                    <span class="link_names">Orders</span>
-                </a>
-                <span class="tooltip">Orders</span>
+              <a href="#">
+                <span class="fas fa-shopping-cart"></span>
+                <span>Orders</span>
+              </a>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-user' ></i>
-                    <span class="link_names">User</span>
-                </a>
-                <span class="tooltip">User</span>
+              <a href="#">
+                <span class="fas fa-user-circle"></span>
+                <span>Accounts</span>
+              </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog' ></i>
-                    <span class="link_names">Settings</span>
-                </a>
-                <span class="tooltip">Settings</span>
-            </li>
-        </ul>
-        <div class="profile_content">
-            <div class="profile">
-                <div class="profile_details">
-                    <img src="./user/cat.png" alt="">
-                    <div class="name_job">
-                        <div class="name">Haezzle</div>
-                        <div class="job">Warehouse Staff</div>
+          </ul>
+          
+        </div>
+    </div>    
+
+    <div class="main-content">
+      <header>
+        <h2>
+          <label for="nav-toggle">
+            <span class="fas fa-bars"></span>
+          </label>
+          Dashboard
+        </h2>
+
+        <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
+
+        </div>
+
+        <div class="user-wrapper">
+         <img src="./user/cat.png" width="40px" height="40px" alt="profile-img">
+         <div class="">
+            <h4>Hazel</h4>
+            <small>Warehouse Staff</small>
+         </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h1>10</h1>
+              <span>Stores</span>
+            </div>
+            <div>
+              <span class="fas fa-users"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>15</h1>
+              <span>Low Stock items</span>
+            </div>
+            <div>
+              <span class="fas fa-clipboard-list"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>25</h1>
+              <span>Orders</span>
+            </div>
+            <div>
+              <span class="fas fa-shopping-cart"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>P 250,000.00</h1>
+              <span>Sales</span>
+            </div>
+            <div>
+              <span class="fas fa-wallet"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="recent-grid">
+          <div class="projects">
+            <div class="card">
+              <div class="card-header">
+                <h2>Recent Orders</h2>
+                <button>See all <span class="fas fa-arrow-right"></span> </button>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table width="100%">
+                  <thead>
+                    <tr>
+                      <td>Store Name</td>
+                      <td>Delivery Receipts</td>
+                      <td>Status</td>
+                      <td>Item Quantity</td>   
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Splash Atc</td>
+                      <td> DR - 000001</td>
+                      <td>
+                        <span class="status purple"></span>
+                        Review
+                      </td>
+                      <td> 569 pcs</td>
+                    </tr>
+                    <tr>
+                      <td>Splash BHS</td>
+                      <td>DR - 000002</td>
+                      <td>
+                        <span class="status orange"></span>
+                        Pending
+                      </td>
+                    <td> 255 pcs</td>
+                    </tr>
+                    <tr>
+                      <td>Splash Rockwell</td>
+                      <td>DR - 000003</td>
+                      <td>
+                        <span class="status pink"></span>
+                        In Progress
+                      </td>
+                    <td> 455 pcs</td>
+                    </tr>
+                    <tr>
+                      <td>Splash Trinoma</td>
+                      <td>DR - 000004</td>
+                      <td>
+                        <span class="status purple"></span>
+                        Review
+                      </td>
+                      <td> 652 pcs</td>
+                    </tr>
+                    <tr>
+                      <td>Splash Megamall</td>
+                      <td>DR - 000005</td>
+                      <td>
+                        <span class="status pink"></span>
+                        In Progress
+                      </td>
+                    <td> 325 pcs</td>
+                    </tr>
+                  </tbody>
+
+                </table>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="customers">
+            <div class="card">
+              <div class="card-header">
+                  <h2>New Orders</h2>
+                  <button>See all <span class="fas fa-arrow-right"></span> </button>
+              </div>
+              <div class="card-body">
+                <div class="customer">
+                  <div class="info">
+                    <img src="./user/a.png" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Splash BHS</h4>
+                      <small>Hannah Mortel</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
                     </div>
                 </div>
-                <i class='bx bx-log-out' id="log_out"></i>
+                <div class="customer">
+                  <div class="info">
+                    <img src="./user/a.png" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Splash G4</h4>
+                      <small>Mickey Yu</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="./user/a.png" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Splash Trinoma</h4>
+                      <small>Zia Marasigan</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="./user/a.png" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Splash  Circuit</h4>
+                      <small>Hahn Zoleta</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="./user/a.png" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Splash Palawan</h4>
+                      <small>Uno Marasigan</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="./user/a.png" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Spalsh Subic</h4>
+                      <small>Rafael Sy</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="./user/a.png" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Splash LCT</h4>
+                      <small>Inigo Luis</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+              </div>
             </div>
-        </div>
+
+          </div>
+          
+        </div>  
+
+      </main>
     </div>
-    <div class="home_content">
-        <div class="text">Home Content Here...</div>
-    </div>
-    
-<script src="ims.js"></script>    
+
+<script src="./javascript/ims.js"></script>    
 </body>
 </html>
