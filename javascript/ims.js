@@ -8,3 +8,11 @@
         searchBtn.onclick = function() {
             sidebar.classList.toggle("active");
         }
+
+        
+        function userLogout() {
+            alert("You are now logging out of the system!")
+            window.location.assign("index.html");
+            localStorage.setItem('currentUser', '');
+         }
+        
