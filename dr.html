@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/dr.css">
+    <link rel="stylesheet" href="./css/dr2.css">
+    <link rel="icon" type="image/x-icon" href="./user/cat.png">  
+    <title>Delivery Receipt</title>
+</head>
+<body>
+    <section id="header">
+    <h1>Delivery Receipt</h1>
+    </section>
+
+    <section id="invent-form">
+        <div class="invent">
+            <div class="d-flex" >
+                <div>                    
+                    <input type="text" placeholder="Product Code" id="product">
+                </div>
+                <div>
+                    <input type="text" placeholder="Description" id="description">
+                </div>
+
+                <div>
+                    <input type="text" value="0" placeholder="Product Price" id="price" onchange="getTotal()"> 
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <input type="text" value="0" placeholder="Quantity" id="quantity" onchange="getTotal()">
+                </div>
+                <div>
+                   
+                    <input type="text" placeholder="Total Amount"  id="total">
+                </div>
+            </div>
+            <div class="text-center">
+                <button onclick="addInventory()">Submit</button>
+            </div> 
+        </div>
+    </section>
+
+    <section id="invent-table">
+        <div class="table" >
+            <div class="d-flex-between">
+                <div>
+                    <h4>DR No.00001</h4>
+                </div>
+                <div>
+                    <button class="clear" onclick="clearButton()">Clear</button>
+                    <button class="print" onclick="printData()">Print/Download</button>
+                </div>
+            </div>
+
+            <div class="table-responsive" id="allInventory">
+                <table width="100%" border="1" id="inventoryTable">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3">
+                            Grand Total
+                        </th>
+                        <td id="grandTotal" colspan="2" class="font-weight-bold"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="./javascript/dr.js"></script>
+
+    
+</body>
+</html

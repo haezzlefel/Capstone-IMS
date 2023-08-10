@@ -1,0 +1,117 @@
+
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/* first-section */
+section#header{
+  text-align: center;
+  color: white;
+  background-color: #087b81;
+  padding: 10px 10px;
+ font-size: 20px;
+ font-weight: 900;
+ font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+/* second-section */
+section#invent-form{
+  padding-top: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+section#invent-form .invent{
+  padding: 20px;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #eee9e9;
+  padding-top: 50px; 
+  
+
+}
+
+
+section#invent-form .invent  input{
+  /* min-width: 300px !important; */
+  padding: 10px;
+  outline-color: #bbbbbb;
+  border:1px solid  #bbbbbb;
+  color:    #087b81;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+section#invent-form .invent input ::placeholder{
+  color: #bbbbbb;
+}
+
+section#invent-form .invent > div{
+  margin-bottom: 20px;
+}
+
+.d-flex{
+  display: flex;
+  justify-content: space-around;
+} 
+.d-flex-between{
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-center{
+  text-align: center;
+}
+
+button{
+  padding: 10px 30px;
+  background-color:#087b81;;
+  border: none;
+  color: #bbbbbb;
+  font-weight: bolder;
+}
+
+/* third-section table */
+section#invent-table .table{
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  padding: 20px;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #087b81;
+  color: #fff;
+  flex-direction: column; 
+}
+
+.btn, .clear{
+  background-color: rgb(5, 5, 5);
+  color: white;
+  border: rounded;
+  border-radius: 2px;
+  cursor: pointer;
+
+}
+
+.clear, .print{
+  padding: 10px 20px;
+  font-size: 11px;
+  border: rounded;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.print{
+  background-color: #bbbbbb;
+  color: #0a043c;
+  cursor: pointer;
+}
+.font-weight-bold{
+  font-weight: 900;
+}
+
