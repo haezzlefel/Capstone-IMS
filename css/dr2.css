@@ -2,56 +2,65 @@
 body{
   margin: 0px;
   padding: 0px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 
 /* first-section */
 section#header{
   text-align: center;
-  color: white;
-  background-color: #087b81;
-  padding: 10px 10px;
- font-size: 20px;
- font-weight: 900;
- font-family: Arial, Helvetica, sans-serif;
+  color: #bbbbbb;
+  background-color: #087b81;;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 900;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 
 
 /* second-section */
-section#invent-form{
+section#del-form{
   padding-top: 60px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 
-section#invent-form .invent{
+section#del-form .del{
   padding: 20px;
   width: 60%;
   margin-left: 20%;
   margin-right: 20%;
-  background-color: #eee9e9;
+  background-color: #e9e9e9;
   padding-top: 50px; 
   
 
 }
 
+h4{
+  padding: 0px !important;
+  margin: 0px !important;
+  color: #087b81;
+ 
+  
+}
 
-section#invent-form .invent  input{
+section#del-form .del  input{
   /* min-width: 300px !important; */
   padding: 10px;
   outline-color: #bbbbbb;
-  border:1px solid  #bbbbbb;
+  border:1px solid  #04594c;
   color:    #087b81;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-section#invent-form .invent input ::placeholder{
+section#del-form .del input ::placeholder{
   color: #bbbbbb;
+  border: rounded;
+  border-radius: 2px;
 }
 
-section#invent-form .invent > div{
+section#del-form .del > div{
   margin-bottom: 20px;
 }
 
@@ -70,14 +79,15 @@ section#invent-form .invent > div{
 
 button{
   padding: 10px 30px;
-  background-color:#087b81;;
-  border: none;
+  background-color:black;
+  border: rounded;
+  border-radius: 2px;
   color: #bbbbbb;
   font-weight: bolder;
 }
 
 /* third-section table */
-section#invent-table .table{
+section#del-table .del{
   display: flex;
   justify-content: center;
   padding-top: 60px;
@@ -85,13 +95,13 @@ section#invent-table .table{
   width: 60%;
   margin-left: 20%;
   margin-right: 20%;
-  background-color: #087b81;
+  background-color: #087b81;;
   color: #fff;
   flex-direction: column; 
 }
 
 .btn, .clear{
-  background-color: rgb(5, 5, 5);
+  background-color: black;
   color: white;
   border: rounded;
   border-radius: 2px;
@@ -102,8 +112,6 @@ section#invent-table .table{
 .clear, .print{
   padding: 10px 20px;
   font-size: 11px;
-  border: rounded;
-  border-radius: 2px;
   cursor: pointer;
 }
 .print{
