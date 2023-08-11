@@ -12,12 +12,12 @@
     <section id="header">
         <h3>Delivery Receipt</h3>
     </section>
-            <section id="invent-form">
-                <div class="invent">
+            <section id="del-form">
+                <div class="del">
                     <div class="d-flex" >
                         <div>
-                            <h4>Products</h4>
-                            <input type="text" placeholder="product" id="product">
+                            <h4>Product Name</h4>
+                            <input type="text" placeholder="Product" id="product">
                         </div>
                         <div>
                             <h4>Price</h4>
@@ -35,12 +35,12 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button onclick="addInventory()">Add on List</button>
+                        <button onclick="addDelivery()">Add on List</button>
                     </div> 
                 </div>
             </section>
         
-            <section id="invent-table">
+            <section id="del-table">
                 <div class="table" >
                     <div class="d-flex-between">
                         <div>
@@ -51,14 +51,14 @@
                             <button class="print" onclick="printData()">Print/Download</button>
                         </div>
                     </div>
-                    <div class="table-responsive" id="allInventory">
-                        <table width="100%" border="1" id="inventoryTable">
+                    <div class="table-responsive" id="allDelivery">
+                        <table width="100%" border="1" id="deliveryTable">
                             <tr>
                                 <th>Product Name</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
-                                <th >Take Action</th>
+                                <th>Action</th>
                             </tr>
                             <tr>
                                 <th colspan="3">

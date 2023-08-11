@@ -19,13 +19,13 @@ section#header{
 }
 
 /* second-section */
-section#invent-form{
+section#del-form{
   padding-top: 60px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 
-section#invent-form .invent{
+section#del-form .del{
   padding: 20px;
   width: 60%;
   margin-left: 20%;
@@ -44,7 +44,7 @@ h4{
   
 }
 
-section#invent-form .invent  input{
+section#del-form .del  input{
   /* min-width: 300px !important; */
   padding: 10px;
   outline-color: #f9f8f8;
@@ -53,11 +53,11 @@ section#invent-form .invent  input{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-section#invent-form .invent input ::placeholder{
+section#del-form .del input ::placeholder{
   color: #087b81;
 }
 
-section#invent-form .invent > div{
+section#del-form .del > div{
   margin-bottom: 20px;
 }
 
@@ -84,7 +84,7 @@ button{
 }
 
 /* third-section table */
-section#invent-table .table{
+section#del-table .table{
   display: flex;
   justify-content: center;
   padding-top: 60px;
