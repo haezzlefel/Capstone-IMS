@@ -10,10 +10,10 @@ getTotal = () => {
     }
 }
 
-addDelivery = () =>{
-    let totaldelivery = JSON.parse(localStorage.getItem("totaldelivery"));
-    if(totaldelivery == null){
-        totaldelivery = []
+addInventory = () =>{
+    let totalinventory = JSON.parse(localStorage.getItem("totalinventory"));
+    if(totalinventory == null){
+        totalinventory = []
     }
     
     let product = document.querySelector('#product').value;
@@ -29,26 +29,26 @@ addDelivery = () =>{
     }else{
         let total = parseFloat( price * quantity);
         total = total.toFixed(2);     
-        let newDelivery = {
+        let newInventory = {
             product : product,
             price : price,
             quantity : quantity,
             total : total
         }
-        totaldelivery.push(newDelivery)
-        localStorage.setItem("totaldelivery", JSON.stringify(totaldelivery))
+        totalinventory.push(newInventory)
+        localStorage.setItem("totalinventory", JSON.stringify(totalinventory))
         window.location.reload() 
     }
 }
 
 getGrandTotal = () =>{
     let grandTotal = 0;
-    let totaldelivery = JSON.parse(localStorage.getItem("totaldelivery"));
-    if (totaldelivery != null && totaldelivery.length > 0) {
+    let totalinventory = JSON.parse(localStorage.getItem("totalinventory"));
+    if (totalinventory != null && totalinventory.length > 0) {
         
-        for (let index = 0; index < totaldelivery.length; index++) {
+        for (let index = 0; index < totalinventory.length; index++) {
 
-            grandTotal  += parseFloat(totaldelivery[index]["total"]);
+            grandTotal  += parseFloat(totalinventory[index]["total"]);
             grandTotal = grandTotal;
 
 
@@ -61,26 +61,26 @@ getGrandTotal = () =>{
 
 
 
-showDel = () =>{
+showInvent = () =>{
     getGrandTotal();
-    let totaldelivery = JSON.parse(localStorage.getItem("totaldelivery"));
-    if (totaldelivery != null && totaldelivery.length > 0) {
-        let table = document.querySelector('#deliveryTable');
-        for (let index = 0; index < totaldelivery.length; index++) {
+    let totalinventory = JSON.parse(localStorage.getItem("totalinventory"));
+    if (totalinventory != null && totalinventory.length > 0) {
+        let table = document.querySelector('#inventoryTable');
+        for (let index = 0; index < totalinventory.length; index++) {
             let row = table.insertRow(1);
-            let deliveryProduct = row.insertCell(0);
-            let deliveryPrice = row.insertCell(1);
-            let deliveryQuantity = row.insertCell(2);
-            let deliveryTotal = row.insertCell(3);
-            let deliveryAction = row.insertCell(4);
+            let inventoryProduct = row.insertCell(0);
+            let inventoryPrice = row.insertCell(1);
+            let inventoryQuantity = row.insertCell(2);
+            let inventoryTotal = row.insertCell(3);
+            let inventoryAction = row.insertCell(4);
 
-            deliveryAction.className = "text-center";
+            inventoryAction.className = "text-center";
 
 
-            deliveryProduct.innerHTML = totaldelivery[index]["product"];
-            deliveryPrice.innerHTML = totaldelivery[index]["price"];
-            deliveryQuantity.innerHTML = totaldelivery[index]["quantity"];
-            deliveryTotal.innerHTML = totaldelivery[index]["total"];
+            inventoryProduct.innerHTML = totalinventory[index]["product"];
+            inventoryPrice.innerHTML = totalinventory[index]["price"];
+            inventoryQuantity.innerHTML = totalinventory[index]["quantity"];
+            inventoryTotal.innerHTML = totalinventory[index]["total"];
 
             getGrandTotal();
 
@@ -91,26 +91,35 @@ showDel = () =>{
             btn.onclick = (function(index) {
                 return function() {
 
-                    if (confirm("Do you want to delete your delivery receipt data ?")) {
+                    if (confirm("Do you want to delete your inventory data ?")) {
                         localStorage.clear();
                         window.location.reload();
 
-                        totaldelivery.splice(index, 1) 
+                        totalinventory.splice(index, 1) 
                         alert("item deleted")
                         window.location.reload();
-                        localStorage.setItem("totaldelivery", JSON.stringify(totaldelivery)); 
+                        localStorage.setItem("totalinventory", JSON.stringify(totalinventory)); 
                         getGrandTotal();
                     }
+
+
+                        
+                    
                       
                 }
             })(index);
-            deliveryAction.appendChild(btn);
+            inventoryAction.appendChild(btn);
         }
     }
 }
 
+
+
+
+
+
 clearButton = () => {
-    if (confirm("Do you want to clear all your delivery receipt data ? This action cannot be un done")) {
+    if (confirm("Do you want to clear all your inventory data ? This action cannot be un done")) {
         localStorage.clear();
         window.location.reload();
     }
@@ -125,14 +134,14 @@ getDate = () => {
 
 
 printData = () => { 
-    var divContents = document.getElementById("allDelivery").innerHTML; 
+    var divContents = document.getElementById("allInventory").innerHTML; 
     var a = window.open('', '', 'height=11000, width=1000'); 
     a.document.write('<html>'); 
-    a.document.write('<body > <h4>Delivery Receipt : ' + getDate() + '<br>'); 
+    a.document.write('<body > <h1>Your Delivery Receipt As At : ' + getDate() + '<br>'); 
     a.document.write(divContents); 
     a.document.write('</body></html>'); 
     a.document.close(); 
     a.print(); 
 } 
 
-showDel();
+showInvent();

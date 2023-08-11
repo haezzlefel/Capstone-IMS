@@ -4,7 +4,7 @@
         justify-content: center;
         flex-direction: column;
     } 
-    section#del-form .del{
+    section#invent-form .invent{
         padding: 10%;
         width: 80%;
         margin-left: 0%;
@@ -13,7 +13,7 @@
         padding-top: 50px;   
     }
 
-    section#del-form .del  input{
+    section#invent-form .invent  input{
         min-width: 90% !important;
         padding: 15px;
         outline-color: #bbbbbb;
@@ -22,13 +22,13 @@
         margin-bottom: 20px;
     }
 
-    section#del-form .del > div{
+    section#invent-form .invent > div{
         margin-bottom: 0px;
     }
 
     button{
         padding: 20px 50px;
-        background-color:black;
+        background-color:#0a043c;
         border: none;
         color: #bbbbbb;
         font-weight: 900;
@@ -36,7 +36,7 @@
         width: 100%;
     }
 
-    section#del-table .table{
+    section#invent-table .table{
         display: flex;
         justify-content: center;
         padding-top: 60px;
@@ -44,7 +44,7 @@
         width: 90%;
         margin-left: 0%;
         margin-right: 0%;
-        background-color: #087b81;
+        background-color: #0a043c;
         color: #fff;
         flex-direction: column; 
         
