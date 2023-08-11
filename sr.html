@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/sr.css">
+    <link rel="stylesheet" href="./css/sr2.css">
+    <link rel="icon" type="image/x-icon" href="./user/cat.png">  
+    <title>Stock Receipt</title>
+</head>
+<body>
+    <section id="header">
+        <h3>Stock Receipt</h3>
+    </section>
+        <div class="">    
+            <section id="sto-form">
+                <div class="sto">
+                    <div class="d-flex" >
+                        <div>
+                            <h4>Product Code</h4>
+                            <input type="text" placeholder="Product" id="product">
+                        </div>
+                        <div>
+                            <h4>Description</h4>
+                            <input type="text" placeholder="Description" id="description">
+                        </div>
+                        <div>
+                            <h4>Price</h4>
+                            <input type="text" value="0" placeholder="price" id="price" onchange="getTotal()"> 
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div>
+                            <h4>Quantity</h4>
+                            <input type="text" value="0" placeholder="quantity" id="quantity" onchange="getTotal()">
+                        </div>
+                        <div>
+                            <h4>Total</h4>
+                            <input type="text" placeholder="0" readonly value="0" id="total">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button onclick="addStock()">Add on List</button>
+                    </div> 
+                </div>
+            </section>
+        </div>       
+            <section id="sto-table">
+                <div class="table" >
+                    <div class="d-flex-between">
+                        <div>
+                            <h1>SR No.0001</h1>
+                        </div>
+                        <div>
+                            <button class="clear" onclick="clearButton()">Clear</button>
+                            <button class="print" onclick="printData()">Print/Download</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive" id="allStock">
+                        <table width="100%" border="1" id="stockTable">
+                            <tr>
+                                <th>Product Code</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3">
+                                    Grand Total
+                                </th>
+                                <td id="grandTotal" colspan="2" class="font-weight-bold"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+    <script src="./javascript/sr.js"></script>
+</body>
+</html
