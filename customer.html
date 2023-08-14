@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/customer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Customer</title>
+</head>
+<body>
+    <div class="modal" id="clients" style="display:block;">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+              <h4 class="modal-title">Customers</h4>
+            </div>
+            <div class="modal-body">
+              <div class="table-wrapper">
+                <div class="table-title">
+                  <button type="button" id="bnt" class="btn btn-info add-new">
+                 <i class="fa fa-plus"></i>Add New</button>
+                </div>
+                <br>
+                <br>
+
+                <div>     
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Store Name</th>
+                      <th>In Charge</th>
+                      <th>Address</th>
+                      <th>Phone Number</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="servers_table" runat="server" ClientIDMode="static" data-delete="">
+                    <tr id="server_0">
+                      <td>Splash ATC</td>
+                      <td>Hazel Errazo</td>
+                      <td>Alabang Town Center</td>
+                      <td>02-807-8861</td>
+                      <td class="crud"><a class="add" title="Add" data-toggle="tooltip"><i class="fa fa-check"></i></a><a class="edit" title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a><a class="delete" title="Delete" data-toggle=
+                          "tooltip"><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" id="sa" onclick="SaveServerList();">Save</button>
+              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button></div>
+          </div>
+        </div>
+      </div>
+      <script src="./javascript/customer.js"></script>
+</body>
+</html>
