@@ -2,17 +2,17 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 
     $('#clients table.table td .add').toggle(false);
-
+  //this line could cause problems if the modal doesnt contain any existing entries
 	var actions = $("#clients table td:last-child").html();
 	// Append table with add row form on add new button click
     $(".add-new").click(function(){
 		$(this).attr("disabled", "disabled");
 		var index = $("#clients table tbody tr:last-child").index();
         var row = '<tr id="server_0">' +
-            '<td><input type="text" class="form-control" name="store_name" id="store_name"></td>' +
-            '<td><input type="text" class="form-control" name="in_charge" id="in_charge"></td>' +
-            '<td><input type="text" class="form-control" name="address" id="address"></td>' +
-            '<td><input type="text" class="form-control" name="phone_number" id="phone_number"></td>' +
+            '<td><input type="text" class="form-control" name="server_label" id="server_label"></td>' +
+            '<td><input type="text" class="form-control" name="server_hostname" id="server_hostname"></td>' +
+            '<td><input type="text" class="form-control" name="server_streamport" id="server_streamport"></td>' +
+            '<td><input type="text" class="form-control" name="server_apiport" id="server_apiport"></td>' +
 			'<td class="crud">' + actions + '</td>' +
         '</tr>';
     	$("#clients table").append(row);		
