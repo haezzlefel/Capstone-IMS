@@ -148,8 +148,5 @@ printData = () => {
     a.print(); 
 } 
 
-//showSto();
+showSto();
 
-// sr.js
-
-showSto(totalstock);
