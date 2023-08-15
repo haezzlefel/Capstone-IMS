@@ -149,3 +149,12 @@ printData = () => {
 } 
 
 showSto();
+
+// Example code snippet in your Stock Receipt script after adding an entry
+// This is just a simple example, adjust this according to your actual implementation
+function addStock() {
+    // ... existing code to add entry ...
+
+    // After adding the entry, call the updateStockCard() function
+    updateStockCard(productCode, quantity);
+}
