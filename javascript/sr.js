@@ -151,26 +151,21 @@ printData = () => {
 showSto();
 
 /// my new code this is for checking
-function updateStockCard(productCode, quantity) {
-    let table = document.getElementById("table");
-    let rows = table.getElementsByTagName("tr");
+function simulateStockReceipt() {
+    // Simulate adding a stock entry
+    let productCode = "101-0001";
+    let quantity = 3;
 
-    for (let i = 1; i < rows.length; i++) { 
-        let cells = rows[i].getElementsByTagName("td");
-        let currentProductCode = cells[0].textContent;
-
-        if (currentProductCode === productCode) {
-            let stockOnHandCell = cells[5]; 
-            let stockOnHand = parseInt(stockOnHandCell.textContent);
-            stockOnHand += quantity;
-
-            stockOnHandCell.textContent = stockOnHand;
-            
-            break; 
-        }
-    }
+    // Call the function to update the Stock Card
+    updateStockQuantity(productCode, quantity);
 }
 
+// Call the function to simulate stock receipt interaction
+simulateStockReceipt();
+
 function addStock() {
-  updateStockCard(productCode, quantity);
+    // ... existing code to add entry ...
+
+    // After adding the entry, call the updateStockQuantity() function
+    updateStockQuantity(productCode, quantity);
 }
