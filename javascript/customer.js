@@ -2,17 +2,17 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 
     $('#clients table.table td .add').toggle(false);
-  //this line could cause problems if the modal doesnt contain any existing entries
+  
 	var actions = $("#clients table td:last-child").html();
-	// Append table with add row form on add new button click
+
     $(".add-new").click(function(){
 		$(this).attr("disabled", "disabled");
 		var index = $("#clients table tbody tr:last-child").index();
         var row = '<tr id="server_0">' +
-            '<td><input type="text" class="form-control" name="server_label" id="server_label"></td>' +
-            '<td><input type="text" class="form-control" name="server_hostname" id="server_hostname"></td>' +
-            '<td><input type="text" class="form-control" name="server_streamport" id="server_streamport"></td>' +
-            '<td><input type="text" class="form-control" name="server_apiport" id="server_apiport"></td>' +
+            '<td><input type="text" class="form-control" name="csr_label" id="csr_label"></td>' +
+            '<td><input type="text" class="form-control" name="csr_1" id="csr_1"></td>' +
+            '<td><input type="text" class="form-control" name="csr_2" id="csr_2"></td>' +
+            '<td><input type="text" class="form-control" name="csr_3" id="csr_3"></td>' +
 			'<td class="crud">' + actions + '</td>' +
         '</tr>';
     	$("#clients table").append(row);		
@@ -23,7 +23,7 @@ $(document).ready(function(){
 	$(document).on("click", ".add", function(){
 		var empty = false;
 		//var input = $(this).closest("tr").find('input[type="text"]');
-        var input = $(this).closest("tr").find('input[type="text"], input[type="password"]');
+        var input = $(this).closest("tr").find('input[type="text"]');
         input.each(function(){
 			if(!$(this).val()){
 				$(this).addClass("error");
@@ -66,11 +66,17 @@ $(document).ready(function(){
 	// Delete row on delete button click
     $(document).on("click", ".delete", function () {      
         if (!$(".add-new").prop("disabled")) {
-            var delable = $("#servers_table").data("delete");
-            delable += $(this).closest("tr").attr("id").replace("server_", "") + "¬";
-            $("#servers_table").data("delete", delable);
+            var delable = $("#csrs_table").data("delete");
+            delable += $(this).closest("tr").attr("id").replace("csr_", "") + "¬";
+            $("#csrs_table").data("delete", delable);
         }
             $(this).closest("tr").remove();
             $(".add-new").removeAttr("disabled");
     });
 });
+l
+
+
+    function SaveCsrList() {
+        alert("Data saved!");
+    }

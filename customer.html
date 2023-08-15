@@ -16,16 +16,15 @@
 <body>
     <div class="modal" id="clients" style="display:block;">
         <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">×</button>
-              <h4 class="modal-title">Customers</h4>
+          <div class="modal-content rounded-top" >
+            <div class="modal-header" style="background-color: #087b81;">
+              <h4 class="modal-title" style="color: white;" >Customers List</h4>
             </div>
-            <div class="modal-body">
-              <div class="table-wrapper">
+            <div class="table-wrapper">
                 <div class="table-title">
-                  <button type="button" id="bnt" class="btn btn-info add-new">
-                 <i class="fa fa-plus"></i>Add New</button>
+                  <div class="modal-body">
+                  <button type="button" id="bnt" class="btn add-new">
+                 Add New</button>
                 </div>
                 <br>
                 <br>
@@ -41,8 +40,8 @@
                       <th>Actions</th>
                     </tr>
                   </thead>
-                  <tbody id="servers_table" runat="server" ClientIDMode="static" data-delete="">
-                    <tr id="server_0">
+                  <tbody id="csrs_table" runat="csr" ClientIDMode="static" data-delete="">
+                    <tr id="csr_0">
                       <td>Splash ATC</td>
                       <td>Hazel Errazo</td>
                       <td>Alabang Town Center</td>
@@ -50,7 +49,7 @@
                       <td class="crud"><a class="add" title="Add" data-toggle="tooltip"><i class="fa fa-check"></i></a><a class="edit" title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a><a class="delete" title="Delete" data-toggle=
                           "tooltip"><i class="fa fa-trash"></i></a></td>
                     </tr>
-                    <tr id="server_0">
+                    <tr id="csr_0">
                         <td>Splash BHS</td>
                         <td>Charlie Abuloc</td>
                         <td>Bonifacio High Street</td>
@@ -58,7 +57,7 @@
                         <td class="crud"><a class="add" title="Add" data-toggle="tooltip"><i class="fa fa-check"></i></a><a class="edit" title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a><a class="delete" title="Delete" data-toggle=
                             "tooltip"><i class="fa fa-trash"></i></a></td>
                       </tr>
-                      <tr id="server_0">
+                      <tr id="csr_0">
                         <td>Splash G4</td>
                         <td>Ninio Querol</td>
                         <td>Makati City</td>
@@ -66,7 +65,7 @@
                         <td class="crud"><a class="add" title="Add" data-toggle="tooltip"><i class="fa fa-check"></i></a><a class="edit" title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a><a class="delete" title="Delete" data-toggle=
                             "tooltip"><i class="fa fa-trash"></i></a></td>
                       </tr>  
-                      <tr id="server_0">
+                      <tr id="csr_0">
                         <td>Splash Trinoma</td>
                         <td>Zia Marasigan</td>
                         <td>North Ave. QC</td>
@@ -74,7 +73,7 @@
                         <td class="crud"><a class="add" title="Add" data-toggle="tooltip"><i class="fa fa-check"></i></a><a class="edit" title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a><a class="delete" title="Delete" data-toggle=
                             "tooltip"><i class="fa fa-trash"></i></a></td>
                       </tr>
-                      <tr id="server_0">
+                      <tr id="csr_0">
                         <td>Splash Circuit</td>
                         <td>Rafael Sy</td>
                         <td>Makati City</td>
@@ -82,7 +81,7 @@
                         <td class="crud"><a class="add" title="Add" data-toggle="tooltip"><i class="fa fa-check"></i></a><a class="edit" title="Edit" data-toggle="tooltip"><i class="fa fa-pencil"></i></a><a class="delete" title="Delete" data-toggle=
                             "tooltip"><i class="fa fa-trash"></i></a></td>
                       </tr>    
-                      <tr id="server_0">
+                      <tr id="csr_0">
                         <td>Splash LCT</td>
                         <td>Inigo Luis</td>
                         <td>China Town</td>
@@ -97,8 +96,8 @@
             </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn" id="sa" onclick="SaveServerList();">Save</button>
-              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button></div>
+              <button type="button" class="btn" id="sa" onclick="SaveCsrList();">Save</button>
+              <button type="button" class="btn" id="co" data-dismiss="modal">Close</button></div>
           </div>
         </div>
       </div>
