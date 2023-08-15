@@ -148,24 +148,8 @@ printData = () => {
     a.print(); 
 } 
 
-showSto();
+//showSto();
 
-/// my new code this is for checking
-function simulateStockReceipt() {
-    // Simulate adding a stock entry
-    let productCode = "101-0001";
-    let quantity = 3;
+// sr.js
 
-    // Call the function to update the Stock Card
-    updateStockQuantity(productCode, quantity);
-}
-
-// Call the function to simulate stock receipt interaction
-simulateStockReceipt();
-
-function addStock() {
-    // ... existing code to add entry ...
-
-    // After adding the entry, call the updateStockQuantity() function
-    updateStockQuantity(productCode, quantity);
-}
+showSto(totalstock);

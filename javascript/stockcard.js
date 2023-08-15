@@ -2,28 +2,50 @@ $(document).ready( function () {
     $('#table').DataTable({
       "responsive": true,
       "bPaginate": false,
-      "bInfo" : false
     });
   } );
 
+    "bInfo" : false
 /// my new code this is for checking
-function updateStockQuantity(productCode, quantity) {
-  let table = document.getElementById("table");
-  let rows = table.getElementsByTagName("tr");
+// stockcard.js
 
-  for (let i = 1; i < rows.length; i++) {
-      let cells = rows[i].getElementsByTagName("td");
-      let currentProductCode = cells[0].textContent;
+showSto = (totalstock) => {
+  let grandTotal = getGrandTotal(totalstock);
 
-      if (currentProductCode === productCode) {
-          let stockOnHandCell = cells[5]; // Index of Stock On Hand column
-          let stockOnHand = parseInt(stockOnHandCell.textContent);
-          stockOnHand += quantity;
+  if (totalstock != null && totalstock.length > 0) {
+      let table = document.querySelector('#table tbody');
+      table.innerHTML = ''; // Clear the existing table rows
 
-          stockOnHandCell.textContent = stockOnHand;
-          break;
+      for (let index = 0; index < totalstock.length; index++) {
+          // Create table row and cells
+          let row = table.insertRow();
+          let cells = [];
+          for (let i = 0; i < 10; i++) {
+              cells.push(row.insertCell(i));
+          }
+
+          // Populate cells with data
+          cells[0].textContent = totalstock[index]["product"];
+          cells[1].textContent = totalstock[index]["description"];
+          cells[2].textContent = totalstock[index]["price"];
+          cells[3].textContent = totalstock[index]["total"];
+          cells[4].textContent = totalstock[index]["quantity"];
+          cells[5].textContent = totalstock[index]["quantity"]; // Stock On Hand
+          cells[6].textContent = totalstock[index]["quantity"]; // Ending Balance
+          cells[7].textContent = totalstock[index]["quantity"]; // Stock Receipt
+          cells[8].textContent = "0"; // Delivery Receipt
+          cells[9].textContent = "0"; // Variance
       }
+
+      document.querySelector('#grandTotal').textContent = grandTotal;
+
+      // Initialize DataTable
+      $(document).ready(function () {
+          $('#table').DataTable({
+              "responsive": true,
+              "bPaginate": false,
+              "bInfo": false
+          });
+      });
   }
-}
-// Example usage to test the function
-updateStockQuantity("101-0001", 5); // Increase stock of product 101-0001 by 5
+};
