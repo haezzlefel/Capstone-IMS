@@ -6,7 +6,7 @@ $(document).ready( function () {
     });
   } );
 
-
+/// my new code this is for checking
   function updateStockCard(productCode, quantity) {
     // Find the row with the matching product code in the Stock Card table
     let table = document.getElementById("table");
@@ -27,4 +27,8 @@ $(document).ready( function () {
             break; // Exit the loop after updating the row
         }
     }
+}
+
+function addStock() {
+  updateStockCard(productCode, quantity);
 }

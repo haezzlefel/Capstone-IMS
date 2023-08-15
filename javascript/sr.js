@@ -150,11 +150,27 @@ printData = () => {
 
 showSto();
 
-// Example code snippet in your Stock Receipt script after adding an entry
-// This is just a simple example, adjust this according to your actual implementation
-function addStock() {
-    // ... existing code to add entry ...
+/// my new code this is for checking
+function updateStockCard(productCode, quantity) {
+    let table = document.getElementById("table");
+    let rows = table.getElementsByTagName("tr");
 
-    // After adding the entry, call the updateStockCard() function
-    updateStockCard(productCode, quantity);
+    for (let i = 1; i < rows.length; i++) { 
+        let cells = rows[i].getElementsByTagName("td");
+        let currentProductCode = cells[0].textContent;
+
+        if (currentProductCode === productCode) {
+            let stockOnHandCell = cells[5]; 
+            let stockOnHand = parseInt(stockOnHandCell.textContent);
+            stockOnHand += quantity;
+
+            stockOnHandCell.textContent = stockOnHand;
+            
+            break; 
+        }
+    }
+}
+
+function addStock() {
+  updateStockCard(productCode, quantity);
 }
