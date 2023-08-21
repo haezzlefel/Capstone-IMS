@@ -1,151 +1,260 @@
-getTotal = () => {
-    let price = document.querySelector('#price').value;
-    let quantity = document.querySelector('#quantity').value;
-    if(isNaN(price) || isNaN(quantity)){
-         alert("Quantity and Price Must be valid numbers")
-    }else{
-        let total = parseFloat( price * quantity);
-        document.querySelector('#total').value = total.toFixed(2);
+let itemCounter = 1;
+    let drCounter = 1; // DR Number counter
+
+    function addItem() {
+      const itemList = document.getElementById('itemList');
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>
+          <input type="text" class="form-control" name="productCode[]" oninput="restrictToNumbers(this)">
+          <div class="invalid-feedback">Enter a valid number.</div>
+        </td>
+        <td><input type="text" class="form-control" name="description[]"></td>
+        <td>
+          <input type="text" class="form-control" name="quantity[]" oninput="restrictToNumbers(this)">
+          <div class="invalid-feedback">Enter a valid number.</div>
+        </td>
+        <td>
+          <input type="text" class="form-control" name="price[]" oninput="restrictToNumbers(this)">
+          <div class="invalid-feedback">Enter a valid number.</div>
+        </td>
+        <td>0.00</td>
+        <td class="action-table">
+  <div class="d-flex align-items-center">
+    <button class="btn btn-sm mr-1" onclick="removeItem(this)" style="background-color: #087b81; color: white;">
+  <i class="fas fa-trash"></i>
+</button>
+
+  </div>
+</td>
+
+      `;
+      itemList.appendChild(newRow);
     }
+
+    function restrictToNumbers(input) {
+      const value = input.value;
+      if (!/^\d*\.?\d*$/.test(value)) {
+        input.classList.add('is-invalid');
+      } else {
+        updateTotal(input.closest('tr'));
+        input.classList.remove('is-invalid');
+      }
+    }
+    <!-- ... (previous code) ... -->
+
+
+  // ... (other functions)
+  function editItem(button) {
+  console.log("Edit button clicked!"); // Add this line
+  const row = button.closest('tr');
+  const productCodeInput = row.cells[0].querySelector('input');
+  const descriptionInput = row.cells[1].querySelector('input');
+  const quantityInput = row.cells[2].querySelector('input');
+  const priceInput = row.cells[3].querySelector('input');
+
+  // Enable editing
+  productCodeInput.disabled = false;
+  descriptionInput.disabled = false;
+  quantityInput.disabled = false;
+  priceInput.disabled = false;
+
+  // Attach event listeners for input fields
+  quantityInput.addEventListener('input', () => updateTotal(row));
+  priceInput.addEventListener('input', () => updateTotal(row));
 }
 
-addDelivery = () =>{
-    let totaldelivery = JSON.parse(localStorage.getItem("totaldelivery"));
-    if(totaldelivery == null){
-        totaldelivery = []
-    }
-    
-    let product = document.querySelector('#product').value;
-    let description = document.querySelector('#description').value;
-    let price = document.querySelector('#price').value;
-    let quantity = document.querySelector('#quantity').value;
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("DOM content loaded!"); // Add this line
+  
+  // ... (other event listener setups)
+});
 
-    if (product == "" || product == null) {
-        alert("please enter a product")
-    }else if (description == "" || description == null) {
-        alert("please enter a description")
-    }else if (price == "" || isNaN(price)) {
-        alert("enter a valid number")
-    }else if (quantity == "" || isNaN(quantity)) {
-        alert("enter a valid quantity")
-    }else{
-        let total = parseFloat( price * quantity);
-        total = total.toFixed(2);     
-        let newDelivery = {
-            product : product,
-            description : description,
-            price : price,
-            quantity : quantity,
-            total : total
-        }
-        totaldelivery.push(newDelivery)
-        localStorage.setItem("totaldelivery", JSON.stringify(totaldelivery))
-        window.location.reload() 
+
+  // Attach event listeners after the document is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('addBtn').addEventListener('click', addItem);
+    document.getElementById('saveBtn').addEventListener('click', () => {
+    document.addEventListener('DOMContentLoaded', () => {  
+      // ... (save functionality)
+    });
+
+
+// Attach event listeners for editing
+const editButtons = document.querySelectorAll('.action-button-edit');
+  editButtons.forEach(button => {
+    button.addEventListener('click', () => editItem(button));
+  });
+});
+
+    // Attach event listeners for deleting
+    const deleteButtons = document.querySelectorAll('.action-button-delete');
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', () => removeItem(button));
+    });
+  });
+  
+    function saveItem(button) {
+      const row = button.parentNode.parentNode;
+      const productCodeInput = row.cells[0].querySelector('input');
+      const descriptionInput = row.cells[1].querySelector('input');
+      const quantityInput = row.cells[2].querySelector('input');
+      const priceInput = row.cells[3].querySelector('input');
+
+      productCodeInput.disabled = true;
+      descriptionInput.disabled = true;
+      quantityInput.disabled = true;
+      priceInput.disabled = true;
+
+      productCodeInput.classList.remove('is-invalid');
+      descriptionInput.classList.remove('is-invalid');
+      quantityInput.classList.remove('is-invalid');
+      priceInput.classList.remove('is-invalid');
+
+      updateTotal(row);
+      updateGrandTotal();
     }
+
+function updateTotal(row) {
+  const quantityInput = row.cells[2].querySelector('input');
+  const priceInput = row.cells[3].querySelector('input');
+  const totalCell = row.cells[4];
+  
+  const quantity = parseFloat(quantityInput.value);
+  const price = parseFloat(priceInput.value);
+  
+  // Check if the values are valid numbers
+  if (isNaN(quantity) || isNaN(price)) {
+    totalCell.textContent = '0.00';
+  } else {
+    const total = quantity * price;
+    totalCell.textContent = formatNumber(total, 2);
+  }
+  
+  updateGrandTotal();
 }
 
-getGrandTotal = () =>{
-    let grandTotal = 0;
-    let totaldelivery = JSON.parse(localStorage.getItem("totaldelivery"));
-    if (totaldelivery != null && totaldelivery.length > 0) {
+    function removeItem(button) {
+  const row = button.closest('tr');
+  if (row) {
+    row.remove(); 
+    updateGrandTotal();
+  }
+}
+    function updateGrandTotal() {
+      const rows = document.querySelectorAll('#itemList tr');
+      let grandTotal = 0;
+      rows.forEach(row => {
+        const total = parseFloat(row.cells[4].innerText.replace(/,/g, ''));
+        grandTotal += isNaN(total) ? 0 : total;
+      });
+      document.getElementById('grandTotal').innerText = formatNumber(grandTotal, 2);
+    }
+
+    // Function to format numbers 
+    function formatNumber(number, maximumFractionDigits = 2) {
+      return parseFloat(number).toLocaleString(undefined, {
+        maximumFractionDigits: maximumFractionDigits,
+        minimumFractionDigits: maximumFractionDigits,
+      });
+    }
+
+    document.getElementById('addBtn').addEventListener('click', addItem);
+
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      const savedDataTableBody = document.getElementById('savedDataTableBody');
+      const savedDataQuantity = document.getElementById('savedDataQuantity');
+      const savedDataGrandTotal = document.getElementById('savedDataGrandTotal');
+      const savedDataDRNumber = document.getElementById('savedDataDRNumber');
+
+      let quantityOfItems = 0;
+      let grandTotal = 0;
+
+      const rows = document.querySelectorAll('#itemList tr');
+      rows.forEach(row => {
+        const productCode = row.cells[0].querySelector('input').value;
+        const description = row.cells[1].querySelector('input').value;
+        const quantity = parseFloat(row.cells[2].querySelector('input').value);
+        const price = parseFloat(row.cells[3].querySelector('input').value);
+        const total = parseFloat(row.cells[4].innerText.replace(/,/g, ''));
+
+        quantityOfItems += isNaN(quantity) ? 0 : quantity;
+        grandTotal += isNaN(total) ? 0 : total;
+
+        const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+      <td>${productCode}</td>
+      <td>${description}</td>
+      <td>${isNaN(quantity) ? '' : formatNumber(quantity, 0)}</td>
+      <td>${isNaN(price) ? '' : formatNumber(price, 2)}</td>
+      <td>${isNaN(total) ? '' : formatNumber(total, 2)}</td>
+    `;
+
+    savedDataTableBody.appendChild(newRow);
+  });
+      savedDataQuantity.textContent = `Quantity of Items: ${formatNumber(quantityOfItems, 0)}`;
+      savedDataGrandTotal.textContent = `Grand Total: ${formatNumber(grandTotal, 2)}`;
+
+      // Generate DR number
+      const paddedCounter = String(drCounter).padStart(5, '0'); // Padded with leading zeros
+      savedDataDRNumber.textContent = `DR Number: ${paddedCounter}`;
+      drCounter++; // Increment counter for the next DR
+
         
-        for (let index = 0; index < totaldelivery.length; index++) {
+  // Get the current date and time
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleDateString('en-US');
+  const formattedTime = currentDate.toLocaleTimeString('en-US');
+  
+  // Update the elements in the modal header
+  savedDataModalLabel.textContent = 'Saved Data';
+  savedDataDRNumber.textContent = `DR Number: ${paddedCounter}`;
+  currentDateTime.textContent = `Date: ${formattedDate} Time: ${formattedTime}`;
+  
+  // Open the modal
+  $('#savedDataModal').modal('show');
+});
 
-            grandTotal  += parseFloat(totaldelivery[index]["total"]);
-            grandTotal = grandTotal;
-
-
-            
-        }
+    // Function to generate a delivery receipt (DR) number
+    function generateDRNumber() {
+      const drPrefix = 'DR';
+      const paddedCounter = String(drCounter).padStart(5, '0'); // Padded with leading zeros
+      drCounter++; // Increment counter for the next DR
+      return `${drPrefix}-${paddedCounter}`;
     }
-    document.querySelector('#grandTotal').innerHTML = grandTotal;
+
+  // Updated Print button functionality
+  document.getElementById('printBtn').addEventListener('click', () => {
+    const modalContent = document.getElementById('savedDataModal').querySelector('.modal-content');
+
+    // Remove the print button before converting to an image
+    const printBtn = modalContent.querySelector('#printBtn');
+    if (printBtn) {
+      printBtn.style.display = 'none';
+    }
+
     
-}
+    domtoimage.toPng(modalContent)
+      .then(function (dataUrl) {
+        const pdfContent = document.createElement('div');
+        const img = new Image();
+        img.src = dataUrl;
+        pdfContent.appendChild(img);
 
+        // Generate the PDF
+        html2pdf().from(pdfContent).save('delivery_receipt.pdf');
 
-
-showDel = () =>{
-    getGrandTotal();
-    let totaldelivery = JSON.parse(localStorage.getItem("totaldelivery"));
-    if (totaldelivery != null && totaldelivery.length > 0) {
-        let table = document.querySelector('#deliveryTable');
-        for (let index = 0; index < totaldelivery.length; index++) {
-            let row = table.insertRow(1);
-            let deliveryProduct = row.insertCell(0);
-            let deliveryDescription = row.insertCell(1);
-            let deliveryPrice = row.insertCell(2);
-            let deliveryQuantity = row.insertCell(3);
-            let deliveryTotal = row.insertCell(4);
-            let deliveryAction = row.insertCell(5);
-
-            deliveryAction.className = "text-center";
-
-
-            deliveryProduct.innerHTML = totaldelivery[index]["product"];
-            deliveryDescription.innerHTML = totaldelivery[index]["description"];
-            deliveryPrice.innerHTML = totaldelivery[index]["price"];
-            deliveryQuantity.innerHTML = totaldelivery[index]["quantity"];
-            deliveryTotal.innerHTML = totaldelivery[index]["total"];
-
-            getGrandTotal();
-
-            let btn = document.createElement('input');
-            btn.type = "button";
-            btn.className = "btn";
-            btn.value = "delete";
-            btn.onclick = (function(index) {
-                return function() {
-
-                    if (confirm("Do you want to delete your delivery receipt data ?")) {
-                        localStorage.clear();
-                        window.location.reload();
-
-                        totaldelivery.splice(index, 1) 
-                        alert("item deleted")
-                        window.location.reload();
-                        localStorage.setItem("totaldelivery", JSON.stringify(totaldelivery)); 
-                        getGrandTotal();
-                    }
-
-
-                        
-                    
-                      
-                }
-            })(index);
-            deliveryAction.appendChild(btn);
+        // Restore the print button's display style
+        if (printBtn) {
+          printBtn.style.display = '';
         }
-    }
-}
+      })
+      .catch(function (error) {
+        console.error('Error generating PDF:', error);
 
-
-
-
-
-
-clearButton = () => {
-    if (confirm("Do you want to clear all your delivery receipt data ? This action cannot be un done")) {
-        localStorage.clear();
-        window.location.reload();
-    }
-    
-}
-
-getDate = () => {
-    let today = new Date();
-    return today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() + '  '  + today.getHours() + ":" + today.getMinutes() + "<br>" ;
-}
-
-
-printData = () => { 
-    var divContents = document.getElementById("allDelivery").innerHTML; 
-    var a = window.open('', '', 'height=11000, width=1000'); 
-    a.document.write('<html>'); 
-    a.document.write('<body > <h4> Delivery Receipt : ' + getDate() + '<br>'); 
-    a.document.write(divContents); 
-    a.document.write('</body></html>'); 
-    a.document.close(); 
-    a.print(); 
-} 
-
-showDel();
+        // Restore the print button's display style
+        if (printBtn) {
+          printBtn.style.display = '';
+        }
+      });
+  });

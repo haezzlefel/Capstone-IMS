@@ -105,6 +105,10 @@ td .status{
   .status.orange{
     background: orangered;
   }
+  .status.teal{
+    background: rgb(6, 152, 163);
+  }
+
   .table-responsive{
     width: 75%;
     overflow-x: auto;
@@ -141,3 +145,6 @@ td .status{
     width: 80%;
 }
 
+table td,tr {
+  text-align: center;
+}
