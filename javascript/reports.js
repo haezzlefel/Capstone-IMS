@@ -1,6 +1,4 @@
- /*reports.js*/
-
- function openPage(pageName, elmnt, color) {
+function openPage(pageName, elmnt, color) {
     // Hide all elements with class="tabcontent" by default */
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
