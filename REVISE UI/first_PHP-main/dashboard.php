@@ -46,37 +46,37 @@ if(!isset($_SESSION['user'])) {
               </a>
             </li>
             <li>
-              <a href="./IMS/dr.php">
+              <a href="dr.php">
                 <span class="fas fa-boxes"></span>
                 <span>Delivery Receipt</span>
               </a>
             </li>
             <li>
-              <a href="./IMS/sr.php">
+              <a href="sr.php">
                 <span class="fa-solid fa-cubes-stacked"></span>
                 <span>Stock Receipt</span>
               </a>
             </li>
             <li>
-              <a href="./IMS/stockcard.php">
+              <a href="stockcard.php">
                 <span class="fa-solid fa-table"></span>
                 <span>Stock Card</span>
               </a>
             </li>
             <li>
-              <a href="./IMS/customer.php">
+              <a href="customer.php">
                 <span class="fas fa-users" ></span>
                 <span>Customers</span>
               </a>
             </li>
             <li>
-              <a href="./IMS/reports.php">
+              <a href="reports.php">
                 <span class='bx bx-folder'></span>
               <span>Reports</span>
               </a>
             </li>
             <li>
-              <a href="./IMS/orders.php">
+              <a href="orders.php">
                 <span class="fas fa-shopping-cart"></span>
                 <span>Orders</span>
               </a>
@@ -120,7 +120,7 @@ if(!isset($_SESSION['user'])) {
       <main>
         <div class="cards">
           <div class="card-single">
-            <div><a href="./IMS/customer.php" class="btn" style="outline: none;">
+            <div><a href="customer.html" class="btn" style="outline: none;">
               <h1>9</h1>
               <span>Stores</span>
             </div>
@@ -129,7 +129,7 @@ if(!isset($_SESSION['user'])) {
             </div>
           </div>
           <div class="card-single">
-            <div><a href="./IMS/stockcard.php" class="btn" style="outline: none;">
+            <div><a href="stockcard.html" class="btn" style="outline: none;">
               <h1>10</h1>
               <span>Low Stock Items</span>
             </div>
@@ -138,7 +138,7 @@ if(!isset($_SESSION['user'])) {
             </div>
           </div>
           <div class="card-single">
-            <div><a href="./IMS/orders.php" class="btn" style="outline: none;">
+            <div><a href="Orders.html" class="btn" style="outline: none;">
               <h1>11</h1>
               <span>Orders</span></a>
             </div>
@@ -147,7 +147,7 @@ if(!isset($_SESSION['user'])) {
             </div>
           </div>
           <div class="card-single">
-            <div><a href="./IMS/orders.php" class="btn" style="outline: none;">
+            <div><a href="Orders.html" class="btn" style="outline: none;">
               <h1>5</h1>
               <span>Orders Fulfilled</span>
             </div>
@@ -163,7 +163,7 @@ if(!isset($_SESSION['user'])) {
             <div class="card">
               <div class="card-header">
                 <h2>Recent Orders</h2>
-                <a href="./IMS/orders.php">
+                <a href="Orders.html">
                 <button>See all <span class="fas fa-arrow-right"></span> </button></a>
               </div>
               <div class="card-body">
@@ -236,7 +236,7 @@ if(!isset($_SESSION['user'])) {
             <div class="card">
               <div class="card-header">
                   <h2>New Orders</h2>
-                  <a href="./IMS/orders.php">
+                  <a href="Orders.html">
                   <button>See all <span class="fas fa-arrow-right"></span> </button></a>
               </div>
               <div class="card-body">

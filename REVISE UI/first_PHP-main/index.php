@@ -106,14 +106,16 @@ if(isset($error_message)) {
               />
               <label for="floatingPassword">Password</label>
             </div>
-            <div class="d-flex justify-content-center mt-5">
-                <a href="register.php" class="btn btn-primary mb-2" tabindex="-1" role="button" style="background-color: #087b81; border-color: #087b81;">Register</a>
-                <div class="mx-2"></div> 
-                <input class="btn btn-primary mb-2" type="submit" value="Login" name="form1" style="background-color: #087b81; border-color: #087b81;">
-              </div>                  
-          <div class="d-flex justify-content-center mt-3">
-            <a href="forget_password.php" class="text text-center" style="color: #087b81;">Forgot Password?</a>
+
+            <div class="d-flex justify-content-between mt-5">
+            <a href="register.php" class="btn btn-primary" tabindex="-1" role="button">Register</a>
+            <input class="btn btn-primary" type="submit" value="Login" name="form1">
+          </div>
+
+          <div class="d-flex justify-content-center mt-5">
+              <a href="forget_password.php" class="text-white text-center">Forgot Password?</a>
             </div>
+
           </form>
         </div>
       </div>
