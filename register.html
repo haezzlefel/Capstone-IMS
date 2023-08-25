@@ -1,4 +1,4 @@
-<?php
+<!---<?php
 ob_start();
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
@@ -90,35 +90,34 @@ if(isset($_POST['form1'])) {
     }
 
 }
-?>
+?>  --->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>IMS Registration</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IMS Registration</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous"
+  />
+    <link rel="stylesheet" href="css/style.css">
+
   </head>
   <body style="background-color: #087b81">    
-    <div  class="container border rounded " style="width: 40%; background-color: rgb(247, 238, 228);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
+    <div  class="container border rounded " style="width: 40%; background-color: rgb(247, 238, 228);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); margin-top: 75px;">
      <div class="container mt-5 mb-2 pb-5">
        <div class="row justify-content-center">
          <div class="col-lg-6">
-           <h3 class="text-center d-flex align-items-center justify-content-center text-nowrap" style="color: #087b81;">          
-             Inventory Management System
-           </h3>
-         </div>
+          <h3 class="text-center d-flex align-items-center justify-content-center text-nowrap" style="color: #087b81;">Inventory</h3>
+          <h3 class="text-center d-flex align-items-center justify-content-center text-nowrap" style="color: #087b81;">Management System</h3>         </div>
        </div>
      </div>    <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6">
-
+<!----
         <?php
 if(isset($error_message)) {
     echo '<div class="error">';
@@ -131,50 +130,71 @@ if(isset($success_message)) {
     echo $success_message;
     echo '</div>';
 }
-?>     
+?>    --> 
           <form action="" method="post">
             <div class="form-floating mb-3">
-              <input
+             <!---- <input
                 type="text"
                 class="form-control"
                 id="firstname"
                 name="firstname"
-                value="<?php if(isset($_POST['firstname'])) {echo $_POST['firstname']; } ?>"
+                value=" <?php if(isset($_POST['firstname'])) {echo $_POST['firstname']; } ?>" 
                 placeholder="First Name"
-              />
+              />--->
+              <input
+              type="text"
+              class="form-control"
+              id="firstname"
+              name="firstname">
               <label for="firstname">First Name</label>
             </div>
             <div class="form-floating mb-3">
-              <input
+              <!---<input
                 type="text"
                 class="form-control"
                 id="lastname"
                 name="lastname"
                 value="<?php if(isset($_POST['lastname'])) {echo $_POST['lastname']; } ?>"
                 placeholder="Last Name"
-              />
+              /> -->
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                name="lastname">
               <label for="lastname">Last Name</label>
             </div>
             <div class="form-floating mb-3">
-              <input
+              <!---<input
                 type="text"
                 class="form-control"
                 id="email"
                 name="email"
                 value="<?php if(isset($_POST['email'])) {echo $_POST['email']; } ?>"
                 placeholder="email"
-              />
+              />  -->
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                name="email">
               <label for="email">Email Address</label>
             </div>
             <div class="form-floating mb-3">
-              <input
+              <!----<input
                 type="phone"
                 class="form-control"
                 id="phone"
                 name="phone"
                 placeholder="Phone Number"
                 value="<?php if(isset($_POST['phone'])) {echo $_POST['phone']; } ?>"
-              />
+              /> --->
+              <input
+                type="phone"
+                class="form-control"
+                id="phone"
+                name="phone"
+                placeholder="Phone Number">
               <label for="phone">Phone Number</label>
             </div>
             <div class="form-floating mb-3">
@@ -198,8 +218,8 @@ if(isset($success_message)) {
               <label for="retype_password">Confirm Password</label>
             </div>
             <div class="d-flex align-items-center justify-content-center mt-5">
-                <a href="index.php" class="text-black me-2 text-decoration-none">Already Registered?</a>
-                <input class="btn btn-dark" type="submit" value="Submit" name="form1">
+                <a href="index.html" class="text-black me-2 text-decoration-none">Already Registered?</a>
+                <input class="btn btn-dark" type="submit" value="Submit" src="dashboard.html" name="form1"style="background-color: #087b81; border-color: #087b81;">
               </div>
             </form>
         </div>
@@ -207,9 +227,7 @@ if(isset($success_message)) {
     </div>
     <br>
     <br>
-    <footer style="background-color: rgb(248, 243, 237); color: #087b81; text-align: center; padding: 20px; height: 60px;">
-      <p>&copy; 2023 Inventory Management System. All rights reserved.</p>
-    </footer>
-    
+   
+  </div>
   </body>
 </html>
