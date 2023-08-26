@@ -12,12 +12,12 @@
         const searchQuery = document.getElementById("searchInput").value.toLowerCase();
 
         const keywords = {
-            "dashboard": "index.html", // Add other keywords and URLs here
+            "dashboard": "index.html",
             "delivery receipt": "dr.html",
             "stock receipt": "sr.html",
             "stock card": "stockcard.html",
             "customers": "customer.html",
-            "reports": "#", // Update with the actual URL
+            "reports": "#", 
             "orders": "Orders.html",
             "accounts": "messages.html"
         };

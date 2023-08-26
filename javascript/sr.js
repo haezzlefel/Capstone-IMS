@@ -44,50 +44,50 @@ let itemCounter = 1;
     <!-- ... (previous code) ... -->
 
 
-  // ... (other functions)
+  
   function editItem(button) {
-  console.log("Edit button clicked!"); // Add this line
+  console.log("Edit button clicked!"); 
   const row = button.closest('tr');
   const productCodeInput = row.cells[0].querySelector('input');
   const descriptionInput = row.cells[1].querySelector('input');
   const quantityInput = row.cells[2].querySelector('input');
   const priceInput = row.cells[3].querySelector('input');
 
-  // Enable editing
+  
   productCodeInput.disabled = false;
   descriptionInput.disabled = false;
   quantityInput.disabled = false;
   priceInput.disabled = false;
 
-  // Attach event listeners for input fields
+  
   quantityInput.addEventListener('input', () => updateTotal(row));
   priceInput.addEventListener('input', () => updateTotal(row));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("DOM content loaded!"); // Add this line
+  console.log("DOM content loaded!"); 
   
-  // ... (other event listener setups)
+  
 });
 
 
-  // Attach event listeners after the document is loaded
+  
   document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('addBtn').addEventListener('click', addItem);
     document.getElementById('saveBtn').addEventListener('click', () => {
     document.addEventListener('DOMContentLoaded', () => {  
-      // ... (save functionality)
+  
     });
 
 
-// Attach event listeners for editing
+
 const editButtons = document.querySelectorAll('.action-button-edit');
   editButtons.forEach(button => {
     button.addEventListener('click', () => editItem(button));
   });
 });
 
-    // Attach event listeners for deleting
+
     const deleteButtons = document.querySelectorAll('.action-button-delete');
     deleteButtons.forEach(button => {
       button.addEventListener('click', () => removeItem(button));
@@ -123,7 +123,7 @@ function updateTotal(row) {
   const quantity = parseFloat(quantityInput.value);
   const price = parseFloat(priceInput.value);
   
-  // Check if the values are valid numbers
+
   if (isNaN(quantity) || isNaN(price)) {
     totalCell.textContent = '0.00';
   } else {
@@ -151,7 +151,7 @@ function updateTotal(row) {
       document.getElementById('grandTotal').innerText = formatNumber(grandTotal, 2);
     }
 
-    // Function to format numbers 
+
     function formatNumber(number, maximumFractionDigits = 2) {
       return parseFloat(number).toLocaleString(undefined, {
         maximumFractionDigits: maximumFractionDigits,
@@ -201,33 +201,33 @@ function updateTotal(row) {
       srCounter++; // Increment counter for the next SR
 
         
-  // Get the current date and time
+  //  date and time
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString('en-US');
   const formattedTime = currentDate.toLocaleTimeString('en-US');
   
-  // Update the elements in the modal header
+  
   savedDataModalLabel.textContent = 'Saved Data';
   savedDataSRNumber.textContent = `SR Number: ${paddedCounter}`;
   currentDateTime.textContent = `Date: ${formattedDate} Time: ${formattedTime}`;
   
-  // Open the modal
+  
   $('#savedDataModal').modal('show');
 });
 
-    // Function to generate a stock receipt (SR) number
+  
     function generateSRNumber() {
       const srPrefix = 'SR';
-      const paddedCounter = String(srCounter).padStart(5, '0'); // Padded with leading zeros
-      srCounter++; // Increment counter for the next SR
+      const paddedCounter = String(srCounter).padStart(5, '0');s
+      srCounter++; 
       return `${srPrefix}-${paddedCounter}`;
     }
 
-  // Updated Print button functionality
+  
   document.getElementById('printBtn').addEventListener('click', () => {
     const modalContent = document.getElementById('savedDataModal').querySelector('.modal-content');
 
-    // Remove the print button before converting to an image
+  
     const printBtn = modalContent.querySelector('#printBtn');
     if (printBtn) {
       printBtn.style.display = 'none';
@@ -241,10 +241,10 @@ function updateTotal(row) {
         img.src = dataUrl;
         pdfContent.appendChild(img);
 
-        // Generate the PDF
+  
         html2pdf().from(pdfContent).save('stock_receipt.pdf');
 
-        // Restore the print button's display style
+  
         if (printBtn) {
           printBtn.style.display = '';
         }
@@ -252,7 +252,7 @@ function updateTotal(row) {
       .catch(function (error) {
         console.error('Error generating PDF:', error);
 
-        // Restore the print button's display style
+  
         if (printBtn) {
           printBtn.style.display = '';
         }

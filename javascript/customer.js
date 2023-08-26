@@ -19,10 +19,10 @@ $(document).ready(function(){
 		$("#clients table tbody tr").eq(index + 1).find(".add, .edit").toggle();
         $('[data-toggle="tooltip"]').tooltip();
     });
-	// Add row on add button click
+
 	$(document).on("click", ".add", function(){
 		var empty = false;
-		//var input = $(this).closest("tr").find('input[type="text"]');
+
         var input = $(this).closest("tr").find('input[type="text"]');
         input.each(function(){
 			if(!$(this).val()){
@@ -50,7 +50,7 @@ $(document).ready(function(){
 			$(".add-new").removeAttr("disabled");
 		}		
     });
-	// Edit row on edit button click
+	
 	$(document).on("click", ".edit", function(){		
         $(this).closest("tr").find("td:not(:last-child)").each(function () {
             if ($(this).is(".pw")) {
@@ -63,7 +63,7 @@ $(document).ready(function(){
 		$(this).closest("tr").find(".add, .edit").toggle();
 		$(".add-new").attr("disabled", "disabled");
     });
-	// Delete row on delete button click
+	
     $(document).on("click", ".delete", function () {      
         if (!$(".add-new").prop("disabled")) {
             var delable = $("#csrs_table").data("delete");
